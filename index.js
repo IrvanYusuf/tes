@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const guestController = require("./controllers/guest.js");
-const router = express.Router();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/tes", (req, res) => {
   res.json({ message: "success" });
