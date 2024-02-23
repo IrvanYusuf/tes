@@ -1,19 +1,13 @@
 const express = require("express");
 const app = express();
-const Guest = require("./models/GuestModel.js");
+const guestController = require("./controllers/guest.js");
+const router = express.Router();
 
 app.get("/tes", (req, res) => {
   res.json({ message: "success" });
 });
 
-app.get("/users", async (req, res) => {
-  try {
-    const result = await Guest.findAll();
-    res.json({ data: result });
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+app.get("/users", guestController.getAll);
 
 app.listen(3000, () => {
   console.log("success");
