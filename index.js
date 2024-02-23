@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const connection = require("./db.js");
+const Guest = require("./models/GuestModel.js");
 
 app.get("/tes", (req, res) => {
   res.json({ message: "success" });
@@ -8,8 +8,7 @@ app.get("/tes", (req, res) => {
 
 app.get("/users", async (req, res) => {
   try {
-    const query = "SELECT * FROM tbl_guests";
-    const [result] = await connection.execute(query);
+    const result = await Guest.findAll();
     res.json({ data: result });
   } catch (error) {
     console.log(error.message);
