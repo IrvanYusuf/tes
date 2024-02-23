@@ -1,10 +1,10 @@
 const mysql = require("mysql2/promise");
 
 const connection = mysql.createPool({
-  host: "localhost",
-  database: "undangan_management",
-  password: "",
-  user: "root",
+  host: "bozrfw2miwisr2bnizcq-mysql.services.clever-cloud.com",
+  database: "bozrfw2miwisr2bnizcq",
+  password: "vtPYNyLJ2TXjXmVTjUJr",
+  user: "upqvw0evryi1zmhl",
 });
 
 module.exports = connection;
