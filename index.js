@@ -1,7 +1,14 @@
 const express = require("express");
 const app = express();
 const apiRoutes = require("./routes/api.js");
+const cors = require("cors");
 
+app.use(
+  cors({
+    origin: ["http://localhost:5174"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
